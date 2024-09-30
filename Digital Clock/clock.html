@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+        body{
+            display: grid;
+            place-items: center;
+            height: 90vh;
+            background-color: black;
+        }
+        .t1{
+            color: aqua;
+            font-family: "Micro 5", sans-serif;
+            font-size:10vw;
+            font-weight: 400;
+            font-style: normal;
+            border: 1px solid aqua;
+            width: 80vw;
+            text-align: center;
+            border-radius:1vh;                                                                     
+        }
+        div.t1:hover{
+            color: black;
+            background-color: aqua;
+        }
+        .t2{
+            color: black;
+            font-family: "Micro 5", sans-serif;
+            font-size:10vw;
+            font-weight: 400;
+            font-style: normal;
+            border: 1px solid black;
+            width: 80vw;
+            text-align: center;
+            border-radius:1vh;                                                                     
+        }
+        div.t2:hover{
+            color: aqua;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="time" class="t1">
+
+    </div>
+</body>
+<script>
+    let x=document.getElementById("time")
+    
+    const change_time=()=>{
+        let d= new Date()
+        let h=d.getHours()
+        let m=d.getMinutes()
+        let s=d.getSeconds()
+        let a="A.M."
+        if(h>12){
+            h=h-12
+            a="P.M."
+        }
+        if(h==0){h=12}
+        let hour=h.toString()
+        let mins=m.toString()
+        let sec=s.toString()
+        if(h<10){hour="0"+hour}
+        if(m<10){mins="0"+mins}
+        if(s<10){sec="0"+sec}
+        x.innerHTML=(`${hour}:${mins}:${sec} ${a}`)
+    }
+    setInterval(change_time,1000)
+
+    // setInterval(()=>{
+    //     let y=document.getElementById("time")
+    //     if(y.classList[0]=="t2"){
+    //         y.classList.toggle("t2")
+    //         y.classList.toggle("t1")
+    //         let b=document.body
+    //         b.style.backgroundColor="black"
+    //     }
+    //     else{
+    //         y.classList.toggle("t1")
+    //         y.classList.toggle("t2")
+    //         let b=document.body
+    //         b.style.backgroundColor="aqua"
+    //     }
+    //     },1000)
+
+</script>
+</html>

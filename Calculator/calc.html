@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="calc.js"></script>
+    <style>
+
+
+/* CSS */
+button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+        /* button{
+            background-color: aqua;
+            border-color: black;
+            
+        } */
+        .parent{
+            height: 80vh;
+            width: 90vw;
+            display: grid;
+            place-items: center;
+        }
+        .buttons{
+            display: block;
+            margin-left: 15%;
+        }
+
+        .inp{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+          <div class="inp">
+            <input type="text" id="entry">
+            <br>
+            <p id="ans"><br></p>
+          </div>
+            <br>
+            <div class="buttons">
+
+                <button onclick="add()">+</button>
+                <button onclick="sub()">-</button>
+                <button onclick="mul()">*</button>
+                <button onclick="div()">/</button>
+                <button onclick="res()">=</button>
+                <br>
+                <button onclick="clea()">C</button>
+                <button onclick="clear_en()">CE</button>
+                <button onclick="d()">backsp</button>
+                <br>
+                <button onclick="writ('9')">9</button>
+                <button onclick="writ('8')">8</button>
+                <button onclick="writ('7')">7</button>
+                <button onclick="writ('6')">6</button><br>
+                <button onclick="writ('5')">5</button>
+                <button onclick="writ('4')">4</button>
+                <button onclick="writ('3')">3</button>
+                <button onclick="writ('2')">2</button><br>
+                <button onclick="writ('1')">1</button>
+                <button onclick="writ('0')">0</button>
+                <button onclick="writ('00')">00</button>
+                <button onclick="writ('.')">.</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
